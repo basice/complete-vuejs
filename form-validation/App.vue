@@ -1,19 +1,33 @@
 <template>
+  <my-input
+    name="Username"
+    :rules="{ required: true, min: 5 }"
+  ></my-input>
+
+  <my-input
+    name="Password"
+    :rules="{ required: true, min: 10 }"
+  ></my-input>
+
   <my-button
     color="white"
     background="darkslateblue"
-    v-bind:disabled="!valid"
+    :disabled="!valid"
   />
 </template>
 
 <script>
 import MyButton from './MyButton.vue'
+import MyInput from './MyInput.vue'
 
 export default {
-  components: { MyButton },
+  components: {
+    MyButton,
+    MyInput
+  },
   data() {
     return {
-      valid: false
+      valid: true
     }
   }
 }

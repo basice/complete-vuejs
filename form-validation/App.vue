@@ -1,12 +1,16 @@
 <template>
-    <my-button color="white" background="darkslateblue" disabled="true" />
+  <my-button
+    color="white"
+    background="darkslateblue"
+    disabled="true"
+  />
 </template>
 
 <script>
 import MyButton from './MyButton.vue'
 
 export default {
-    components: { MyButton }
+  components: { MyButton }
 }
 </script>
 

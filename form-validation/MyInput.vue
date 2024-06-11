@@ -7,7 +7,7 @@
 
     <input
       :id="name"
-      type="text"
+      :type="type"
       :value="value"
       @input="input"
     >
@@ -28,21 +28,32 @@ export default {
     },
     value: {
       type: String
+    },
+    type: {
+      type: String
     }
   },
   computed: {
     error() {
-      if (this.rules.required && !this.value) {
-        return 'Required'
-      }
-      if (this.rules.min && this.value.length < this.rules.min) {
-        return `Minimum length is ${this.rules.min}`
-      }
+      return this.validate(this.value)
     }
   },
   methods: {
+    validate(value) {
+      if (this.rules.required && !value) {
+        return 'Required'
+      }
+      if (this.rules.min && value.length < this.rules.min) {
+        return `Minimum length is ${this.rules.min}`
+      }
+    },
+
     input($evt) {
-      this.$emit('update', { value: $evt.target.value, name: this.name })
+      this.$emit('update', {
+        value: $evt.target.value,
+        name: this.name,
+        valid: this.validate($evt.target.value) ? false : true
+      })
     }
   }
 }

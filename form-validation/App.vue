@@ -5,6 +5,7 @@
     :rules="{ required: true, min: 5 }"
     :value="username.value"
     @update="update"
+    type="text"
   ></my-input>
 
   {{ password }}
@@ -13,6 +14,7 @@
     :rules="{ required: true, min: 10 }"
     :value="password.value"
     @update="update"
+    type="password"
   ></my-input>
 
   <my-button
@@ -33,7 +35,6 @@ export default {
   },
   data() {
     return {
-      valid: true,
       username: {
         value: '',
         valid: false
@@ -44,12 +45,19 @@ export default {
       }
     }
   },
+  computed: {
+    valid() {
+      return this.username.valid && this.password.valid
+    }
+  },
   methods: {
     update(payload) {
       // square bracket for dynamic key
-      this[payload.name.toLowerCase()].value = payload.value
+      this[payload.name.toLowerCase()] = {
+        value: payload.value,
+        valid: payload.valid
+      }
     }
-
   }
 }
 </script>

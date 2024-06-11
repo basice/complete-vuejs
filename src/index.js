@@ -3,7 +3,10 @@ import * as Vue from 'vue/dist/vue.esm-bundler.js'
 const app = Vue.createApp({
   template: `
     <button v-on:click="increment"> Increment </button>
-    <p> {{ count }} </p>
+    <p>{{ count }}</p>
+
+    <div v-if="isEven()">Even</div>
+    <div v-else>Odd</div>
   `,
   data() {
     return {
@@ -13,6 +16,9 @@ const app = Vue.createApp({
   methods: {
     increment() {
       this.count += 1
+    },
+    isEven() {
+      return this.count % 2 === 0
     }
   }
 })

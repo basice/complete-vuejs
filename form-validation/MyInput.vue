@@ -8,7 +8,8 @@
     <input
       :id="name"
       type="text"
-      v-model="value"
+      :value="value"
+      @input="input"
     >
   </div>
 
@@ -24,11 +25,9 @@ export default {
     },
     rules: {
       type: Object // min, required
-    }
-  },
-  data() {
-    return {
-      value: ''
+    },
+    value: {
+      type: String
     }
   },
   computed: {
@@ -39,6 +38,11 @@ export default {
       if (this.rules.min && this.value.length < this.rules.min) {
         return `Minimum length is ${this.rules.min}`
       }
+    }
+  },
+  methods: {
+    input($evt) {
+      this.$emit('update', { value: $evt.target.value, name: this.name })
     }
   }
 }

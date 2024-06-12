@@ -40,7 +40,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Directives (v-if, v-else, v-for)
+## Directives (v-for)
 
 ```js
 import * as Vue from 'vue/dist/vue.esm-bundler.js'
@@ -71,7 +71,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Computer Properties
+## Computed Properties
 
 **3 most important things in Vue:**  
 SFC  
@@ -176,7 +176,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Input Validation
+## Form Validation
 
 **form validation**  
 `v-bind` can be used in any attribute, not just class
@@ -219,7 +219,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## v-model
+## The Amazing v-model
 
 v-model = v-bind:value + v-on:input  
 Another way to do the above:
@@ -297,7 +297,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Component
+## Refactoring with Components
 
 Vue.js and react.js are component frameworks  
 `Vue.createApp` is a component  
@@ -327,7 +327,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Component Props
+## Custom Component Props
 
 ```js
 import * as Vue from 'vue/dist/vue.esm-bundler.js'
@@ -396,7 +396,7 @@ const app = Vue.createApp({
 app.mount('#app')
 ```
 
-## Child-parent Communication
+## Emmiting Events: Child->Parent Communication
 
 ```js
 import * as Vue from 'vue/dist/vue.esm-bundler.js'
